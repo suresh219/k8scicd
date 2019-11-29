@@ -7,15 +7,12 @@ steps:
     - "go test"
 - name: build
   image: golang:1.10-alpine
-  environment:
-    VERSION: "${DRONE_TAG}"
-    COMMIT: "${DRONE_COMMIT_SHA:0:7}"
   commands:
     - "go build -o ./myapp"
 - name: publish
   image: plugins/docker
   repo: magalixcorp/k8scicd
-  tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
+  # tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
   secrets: [ docker_username, docker_password ]
   
 - name: deliver
