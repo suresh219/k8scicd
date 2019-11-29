@@ -15,10 +15,10 @@ pipeline:
     repo: magalixcorp/k8scicd
     tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
     secrets: [ docker_username, docker_password ]
-  deliver:
-    image: plugins/ansible:1
-    environment:
-      K8S_AUTH_KUBECONFIG: 
-        from_secret: K8S_AUTH_KUBECONFIG
-    settings:
-      playbook: playbook.yml
+  # deliver:
+  #   image: plugins/ansible:1
+  #   environment:
+  #     K8S_AUTH_KUBECONFIG: 
+  #       from_secret: K8S_AUTH_KUBECONFIG
+  #   settings:
+  #     playbook: playbook.yml
