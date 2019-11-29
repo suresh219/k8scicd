@@ -1,0 +1,17 @@
+pipeline:
+  test:
+    image: golang:1.10-alpine
+    # commands executed in the container
+    commands:
+      - "go test"
+
+  build:
+    image: golang:1.10-alpine
+    environment:
+      VERSION: "${DRONE_TAG}"
+      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+    commands:
+      - "go build -o ./myapp"
+  # publish:
+  #   image: plugins/docker
+  #   repo: skolodyazhnyy/myapp
