@@ -28,5 +28,6 @@ steps:
     PLAYBOOK_FILE: /.ansible/playbook.yml
     INVENTORY_FILE: /.ansible/inventory
   volumes:
-    - ".ansible:/.ansible"
+  - name: ansible
+    path: /.ansible
   
