@@ -21,4 +21,4 @@ pipeline:
       K8S_AUTH_KUBECONFIG: 
         from_secret: K8S_AUTH_KUBECONFIG
     settings:
-      playbook: .ansible/playbook.yml
+      playbook: playbook.yml
