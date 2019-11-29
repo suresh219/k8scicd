@@ -1,25 +1,26 @@
-pipeline:
-  test:
-    image: golang:1.10-alpine
-    commands:
-      - "go test"
-  build:
-    image: golang:1.10-alpine
-    environment:
-      VERSION: "${DRONE_TAG}"
-      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-    commands:
-      - "go build -o ./myapp"
-  publish:
-    image: plugins/docker
-    repo: magalixcorp/k8scicd
-    tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
-    secrets: [ docker_username, docker_password ]
+kind: pipeline
+steps:
+- name: test
+  image: golang:1.10-alpine
+  commands:
+    - "go test"
+- name: build
+  image: golang:1.10-alpine
+  environment:
+    VERSION: "${DRONE_TAG}"
+    COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+  commands:
+    - "go build -o ./myapp"
+- name: publish
+  image: plugins/docker
+  repo: magalixcorp/k8scicd
+  tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
+  secrets: [ docker_username, docker_password ]
   
-  deliver:
-    image: plugins/ansible:1
-    # environment:
-    #   K8S_AUTH_KUBECONFIG: 
-    #     from_secret: K8S_AUTH_KUBECONFIG
-    settings:
-      playbook: playbook.yml
+- name: deliver
+  image: plugins/ansible:1
+  environment:
+    K8S_AUTH_KUBECONFIG: 
+      from_secret: K8S_AUTH_KUBECONFIG
+  settings:
+    playbook: playbook.yml
