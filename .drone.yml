@@ -15,7 +15,7 @@ steps:
 - name: publish
   image: plugins/docker
   repo: magalixcorp/k8scicd
-  tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
+  tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
   secrets: [ docker_username, docker_password ]
   
 - name: deliver
