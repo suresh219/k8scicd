@@ -25,6 +25,8 @@ steps:
   environment:
     K8S_AUTH_KUBECONFIG: 
       from_secret: K8S_AUTH_KUBECONFIG
-    PLAYBOOK_FILE: .ansible/playbook.yml
-    INVENTORY_FILE: .ansible/inventory
+    PLAYBOOK_FILE: /.ansible/playbook.yml
+    INVENTORY_FILE: /.ansible/inventory
+  volumes:
+  - ${PWD}/.ansible:/.ansible
   
