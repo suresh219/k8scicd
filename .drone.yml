@@ -11,9 +11,13 @@ steps:
     - "go build -o ./myapp"
 - name: publish
   image: plugins/docker
-  repo: magalixcorp/k8scicd
-  # tags: [ "${DRONE_COMMIT_SHA:0:7}" ]
-  secrets: [ docker_username, docker_password ]
+  settings:
+    repo: magalixcorp/k8scicd
+    tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
   
 - name: deliver
   image: plugins/ansible:1
