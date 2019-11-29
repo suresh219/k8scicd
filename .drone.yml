@@ -20,10 +20,11 @@ steps:
       from_secret: docker_password
   
 - name: deliver
-  image: plugins/ansible:1
+  # image: plugins/ansible:1
+  image: openshift/origin-ansible
   environment:
     K8S_AUTH_KUBECONFIG: 
       from_secret: K8S_AUTH_KUBECONFIG
-  settings:
-    playbook: .ansible/playbook.yml
-    inventory: .ansible/inventory
+    PLAYBOOK_FILE: .ansible/playbook.yml
+    INVENTORY_FILE: .ansible/inventory
+  
