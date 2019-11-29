@@ -18,8 +18,8 @@ pipeline:
   
   deliver:
     image: plugins/ansible:1
-    environment:
-      K8S_AUTH_KUBECONFIG: 
-        from_secret: K8S_AUTH_KUBECONFIG
+    # environment:
+    #   K8S_AUTH_KUBECONFIG: 
+    #     from_secret: K8S_AUTH_KUBECONFIG
     settings:
       playbook: playbook.yml
