@@ -26,3 +26,4 @@ steps:
       from_secret: K8S_AUTH_KUBECONFIG
   settings:
     playbook: .ansible/playbook.yml
+    inventory: .ansible/inventory
