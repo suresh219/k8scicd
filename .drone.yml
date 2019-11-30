@@ -6,7 +6,7 @@ steps:
   commands:
   - sh 
   - -c
-  - envsubst < /deployment.yml > deployment2.yml && cat deployment2.yml
+  - envsubst < deployment.yml > deployment2.yml && cat deployment2.yml
 # - name: test
 #   image: golang:1.10-alpine
 #   commands:
