@@ -3,8 +3,8 @@ name: default
 steps:
   - name: gotemplate
     image: hairyhenderson/gomplate
-    commands:
-      - -f /drone/src/deployment.tmpl -o /drone/src/deployment.yaml
+    # commands:
+    #   - -f /drone/src/deployment.tmpl -o /drone/src/deployment.yaml
     environment:
       IMAGEID: magalixcorp/k8scicd
   # - name: bash
