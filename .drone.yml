@@ -29,5 +29,5 @@ steps:
     kubernetes_token:
       from_secret: k8s_token
   commands:
-    - kubectl get pods
-    # - kubectl wait --for=condition=complete -f job_foo.yaml
+    - kubectl apply -f deployment.yml
+    - kubectl wait --for=condition=complete -f deployment.yml
