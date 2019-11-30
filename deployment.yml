@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: "{{ IMAGEID }}"
+        image: "magalixcorp/k8scicd"
         resources:
           requests:
             cpu: 10m
