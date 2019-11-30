@@ -8,7 +8,7 @@ steps:
       - deployment.tmpl
       - -o
       - deployment.yaml
-    settings:
+    environment:
       IMAGEID: magalixcorp/k8scicd
 # - name: test
 #   image: golang:1.10-alpine
