@@ -4,8 +4,7 @@ steps:
   - name: gotemplate
     image: hairyhenderson/gomplate
     commands:
-      - -f/drone/src/deployment.tmpl
-      - -o/drone/src/deployment.yaml
+      - -f /drone/src/deployment.tmpl -o /drone/src/deployment.yaml
     environment:
       IMAGEID: magalixcorp/k8scicd
   # - name: bash
