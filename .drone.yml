@@ -1,21 +1,19 @@
 kind: pipeline
 name: default
 steps:
-  # - name: gotemplate
-  #   image: hairyhenderson/gomplate
-  #   commands:
-  #     - -f
-  #     - /drone/src/deployment.tmpl
-  #     - -o
-  #     - /drone/src/deployment.yaml
-  #   environment:
-  #     IMAGEID: magalixcorp/k8scicd
-  - name: bash
-    image: bash
+  - name: gotemplate
+    image: hairyhenderson/gomplate
     commands:
-      - echo $IMAGEID
+      - -f/drone/src/deployment.tmpl
+      - -o/drone/src/deployment.yaml
     environment:
-      IMAGEID: myimage
+      IMAGEID: magalixcorp/k8scicd
+  # - name: bash
+  #   image: bash
+  #   commands:
+  #     - echo $IMAGEID
+  #   environment:
+  #     IMAGEID: myimage
 # - name: test
 #   image: golang:1.10-alpine
 #   commands:
