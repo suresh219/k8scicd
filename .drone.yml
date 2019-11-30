@@ -9,7 +9,7 @@ steps:
       - -o
       - deployment.yaml
     settings:
-      - IMAGEID: magalixcorp/k8scicd
+      IMAGEID: magalixcorp/k8scicd
 # - name: test
 #   image: golang:1.10-alpine
 #   commands:
