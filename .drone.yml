@@ -15,7 +15,7 @@ steps:
     commands:
       - echo $IMAGEID
     environment:
-      - IMAGEID: myimage
+      IMAGEID: myimage
 # - name: test
 #   image: golang:1.10-alpine
 #   commands:
