@@ -20,14 +20,14 @@ steps:
       from_secret: docker_password
   
 - name: deliver
-  # image: plugins/ansible:1
-  image: openshift/origin-ansible
-  environment:
-    K8S_AUTH_KUBECONFIG: 
-      from_secret: K8S_AUTH_KUBECONFIG
-    PLAYBOOK_FILE: /.ansible/playbook.yml
-    INVENTORY_FILE: /.ansible/inventory
-  volumes:
-  - name: ansible
-    path: /.ansible
-  
+  image: sinlead/drone-kubectl
+  settings:
+    kubernetes_server:
+      from_secret: k8s_server
+    kubernetes_cert:
+      from_secret: k8s_cert
+    kubernetes_token:
+      from_secret: k8s_token
+  commands:
+    - kubectl get pods
+    # - kubectl wait --for=condition=complete -f job_foo.yaml
