@@ -5,9 +5,9 @@ steps:
     image: hairyhenderson/gomplate
     commands:
       - -f
-      - deployment.tmpl
+      - /drone/src/deployment.tmpl
       - -o
-      - deployment.yaml
+      - /drone/src/deployment.yaml
     environment:
       IMAGEID: magalixcorp/k8scicd
 # - name: test
