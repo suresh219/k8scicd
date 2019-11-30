@@ -29,4 +29,3 @@ steps:
       from_secret: k8s_token
   commands:
     - kubectl apply -f deployment.yml
-    - kubectl wait --for=condition=complete -f deployment.yml
