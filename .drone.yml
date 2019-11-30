@@ -13,7 +13,7 @@ steps:
   - name: bash
     image: bash
     commands:
-      - pwd
+      - ls
 # - name: test
 #   image: golang:1.10-alpine
 #   commands:
