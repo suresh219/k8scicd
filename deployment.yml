@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: "{{ image_id }}"
+        image: "${IMAGEID}"
         resources:
           requests:
             cpu: 10m
